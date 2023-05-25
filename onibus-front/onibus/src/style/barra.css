@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Nunito:wght@200&display=swap');
+.nav {
+  background: black;
+    overflow: hidden;
+    font-family: 'nunito';
+    font-weight: bold;
+    max-width: 100%;
+    
+  }
+  .nav a {
+    float: left;
+    text-align: center;
+    padding: 5px ;
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 8px;
+  }
