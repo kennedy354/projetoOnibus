@@ -6,6 +6,7 @@ function Barra() {
     <div className="nav">
         <p><Link to="/">Home</Link></p>
         <p><Link to="/login">Login</Link></p>
+        <p><Link to="/cadastro">Cadastro Usuário</Link></p>
     </div>
     )
 }
