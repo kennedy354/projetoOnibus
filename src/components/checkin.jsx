@@ -1,7 +1,5 @@
-function CheckIn(){
-    return(
-        <h2>Escolha se vai hoje</h2>
-    )
+function CheckIn() {
+  return <h2>Escolha se vai hoje</h2>;
 }
 
-export default CheckIn
+export default CheckIn;

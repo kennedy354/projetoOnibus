@@ -17,9 +17,9 @@ function App() {
         <Route path="/" element={<Home></Home>}>
           <Route index element={<ParadasDoDia/>}></Route>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/cadastro/usuario" element={<Cadastro/>}/>
-          <Route path="/cadastro/onibus" element={<CadastroOnibus/>}/>
-          <Route path="/cadastro/parada" element={<CadastroParada/>}/>
+          <Route path="aluno/cadastro" element={<Cadastro/>}/>
+          <Route path="onibus/cadastro" element={<CadastroOnibus/>}/>
+          <Route path="ponto/cadastro" element={<CadastroParada/>}/>
           <Route path="/checkin" element={<CheckIn/>}/>
         </Route>
       </Routes>

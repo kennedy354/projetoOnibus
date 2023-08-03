@@ -6,9 +6,9 @@ function Barra() {
     <div className="nav">
         <p><Link to="/">Home</Link></p>
         <p><Link to="/login">Login</Link></p>
-        <p><Link to="/cadastro/usuario">Cadastro Usuário</Link></p>
-        <p><Link to="/cadastro/onibus">Cadastro Ônibus</Link></p>
-        <p><Link to="/cadastro/parada">Cadastro Parada</Link></p>
+        <p><Link to="aluno/cadastro">Cadastro Usuário</Link></p>
+        <p><Link to="onibus/cadastro">Cadastro Ônibus</Link></p>
+        <p><Link to="ponto/cadastro">Cadastro Parada</Link></p>
         <p><Link to="/checkin">Checkin</Link></p>
     </div>
     )
