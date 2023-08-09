@@ -23,20 +23,21 @@ function CadastroOnibus() {
       });
 
       const data = await response.json();
-      console.log(data.message);
+      alert(data.message);
 
       setMotorista("");
       setPlaca("");
       setAno("");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Erro", error);
     }
   };
 
   return (
-    <div class="login-cadastro">
-      <div class="formulario">
-        <form class="formulario-registro" onSubmit={handleFormSubmit}>
+    <div className="login-cadastro">
+      <div className="formulario">
+        <p className="titulo">Cadastro Ônibus</p>
+        <form className="formulario-registro" onSubmit={handleFormSubmit}>
           <div className="emVolta">
             <label className="labelEmVolta">Motorista</label>
             <input

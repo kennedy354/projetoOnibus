@@ -3,9 +3,10 @@ import "/src/style/login.css";
 function Login() {
   return (
     <>
-      <div class="login-cadastro">
-        <div class="formulario">
-          <form class="formulario-login">
+      <div className="login-cadastro">
+        <div className="formulario">
+          <p className="titulo">Login</p>
+          <form className="formulario-login">
             <div className="emVolta">
               <label className="labelEmVolta">Nome</label>
               <input type="text" placeholder="Nome" />

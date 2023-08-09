@@ -1,0 +1,56 @@
+.tabela {
+  font-family: sans-serif;
+  background: white;
+  color: #000000;
+  width: 100%;
+  border: 2px solid #000000;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.tabela th,
+.tabela td {
+  border: 1px solid #000000;
+  padding: 8px;
+}
+
+.tabela th {
+  background-color: #f2f2f2;
+}
+
+.tabela td:last-child {
+  border-right: none;
+}
+
+.tabela tr:last-child td {
+  border-bottom: none;
+}
+
+.bExcluir {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #f03949;
+  width: 100%;
+  border: 0;
+  padding: 5px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.bExcluir:hover,
+.bExcluir:active,
+.bExcluir:focus {
+  background: #d92232;
+}

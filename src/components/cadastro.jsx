@@ -1,5 +1,5 @@
 import "/src/style/login.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
@@ -11,6 +11,38 @@ function Cadastro() {
   const [adm, setAdm] = useState(false);
   const [ponto, setPonto] = useState("");
   const [onibus, setOnibus] = useState("");
+
+  const [onibusList, setOnibusList] = useState([]); // State to store the list of Onibus fetched from the API
+
+  useEffect(() => {
+    fetchOnibus();
+  }, []);
+
+  const fetchOnibus = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/onibus");
+      const data = await response.json();
+      setOnibusList(data);
+    } catch (error) {
+      console.error("Erro", error);
+    }
+  };
+
+  const [pontosList, setPontosList] = useState([]); // State to store the list of Onibus fetched from the API
+
+  useEffect(() => {
+    fetchPontos();
+  }, []);
+
+  const fetchPontos = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/ponto");
+      const data = await response.json();
+      setPontosList(data);
+    } catch (error) {
+      console.error("Erro", error);
+    }
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -35,7 +67,7 @@ function Cadastro() {
       });
 
       const data = await response.json();
-      console.log(data.message);
+      alert(data.message);
 
       setNome("");
       setSenha("");
@@ -43,18 +75,19 @@ function Cadastro() {
       setCpf("");
       setDataNascimento("");
       setTelefone("");
-      setAdm("");
+      setAdm(false);
       setPonto("");
       setOnibus("");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Erro", error);
     }
   };
 
   return (
-    <div class="login-cadastro">
-      <div class="formulario">
-        <form class="formulario-registro" onSubmit={handleFormSubmit}>
+    <div className="login-cadastro">
+      <div className="formulario">
+        <p className="titulo">Cadastro Usuário</p>
+        <form className="formulario-registro" onSubmit={handleFormSubmit}>
           <div className="emVolta">
             <label className="labelEmVolta">Nome</label>
             <input
@@ -115,24 +148,34 @@ function Cadastro() {
             />
           </div>
 
-          <div className="emVolta">
-            <label className="labelEmVolta">Ponto</label>
-            <input
-              type="text"
-              placeholder="ID do Ponto"
+          <div>
+            <select
+              className="escolhasMenu"
               value={ponto}
               onChange={(e) => setPonto(e.target.value)}
-            />
+            >
+              <option value="">Escolha um Ponto</option>
+              {pontosList.map((ponto) => (
+                <option key={ponto._id} value={ponto._id}>
+                  {ponto.pontoReferencia}
+                </option>
+              ))}
+            </select>
           </div>
 
-          <div className="emVolta">
-            <label className="labelEmVolta">Ônibus</label>
-            <input
-              type="text"
-              placeholder="ID do Ônibus"
+          <div>
+            <select
+              className="escolhasMenu"
               value={onibus}
               onChange={(e) => setOnibus(e.target.value)}
-            />
+            >
+              <option value="">Escolha um Ônibus</option>
+              {onibusList.map((onibus) => (
+                <option key={onibus._id} value={onibus._id}>
+                  {onibus.motorista}
+                </option>
+              ))}
+            </select>
           </div>
 
           <fieldset className="adm">
@@ -146,7 +189,7 @@ function Cadastro() {
               checked={adm === true}
               onChange={() => setAdm(true)}
             ></input>
-            <label for="tipo-User" className="label-tipo">
+            <label htmlFor="tipo-User" className="label-tipo">
               Sim
             </label>
             <input
@@ -158,7 +201,7 @@ function Cadastro() {
               checked={adm === false}
               onChange={() => setAdm(false)}
             ></input>
-            <label for="tipo-User" className="label-tipo">
+            <label htmlFor="tipo-User" className="label-tipo">
               Não
             </label>
           </fieldset>

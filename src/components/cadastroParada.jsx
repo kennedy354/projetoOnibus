@@ -22,19 +22,20 @@ function CadastroParada() {
       });
 
       const data = await response.json();
-      console.log(data.message);
+      alert(data.message);
 
       setRua("");
       setBairro("");
       setPontoReferencia("");
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Erro", error);
     }
   };
 
   return (
     <div className="login-cadastro">
       <div className="formulario">
+        <p className="titulo">Cadastro Ponto</p>
         <form className="formulario-registro" onSubmit={handleFormSubmit}>
           <div className="emVolta">
             <label className="labelEmVolta">Rua</label>
