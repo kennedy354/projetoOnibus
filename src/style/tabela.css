@@ -1,3 +1,7 @@
+.Ttitulo{
+  text-align: center;
+}
+
 .tabela {
   font-family: sans-serif;
   background: white;
@@ -9,10 +13,14 @@
 
   position: relative;
   z-index: 1;
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto 100px;
   padding: 45px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.tabela thead tr th{
+  background-color: #a0a0a0;
 }
 
 .tabela th,
@@ -37,13 +45,14 @@
   font-family: sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #f03949;
-  width: 100%;
+  background: red;
+  width: 50%;
+  margin: 0px 25% 0px;
   border: 0;
   padding: 5px;
   color: #000000;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
@@ -52,5 +61,59 @@
 .bExcluir:hover,
 .bExcluir:active,
 .bExcluir:focus {
-  background: #d92232;
+  background: #b9000f;
+}
+
+.bEditar {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #24a0ed;
+  width: 100%;
+  border: 0;
+  padding: 5px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 15px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.bEditar:hover,
+.bEditar:active {
+  background: #1d84c5;
+}
+
+.bSalvar {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #66ff66;
+  width: 100%;
+  border: 0;
+  padding: 5px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 15px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.bSalvar:hover,
+.bSalvar:active {
+  background: #14b314;
+}
+
+.tabela tbody td input{
+
+  background: rgb(182, 182, 182);
+  color: #000000;
+  width: 100%;
+  border: 1px solid rgb(0, 0, 0);
+
+  padding: 3px;
+  box-sizing: border-box;
+  font-size: 14px;
 }

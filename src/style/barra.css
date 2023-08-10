@@ -10,9 +10,9 @@
 .nav a {
   float: left;
   text-align: center;
-  padding: 5px;
+  padding: 10px;
   font-size: 15px;
   text-decoration: none;
   color: white;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }

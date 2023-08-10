@@ -12,7 +12,7 @@ function Cadastro() {
   const [ponto, setPonto] = useState("");
   const [onibus, setOnibus] = useState("");
 
-  const [onibusList, setOnibusList] = useState([]); // State to store the list of Onibus fetched from the API
+  const [onibusList, setOnibusList] = useState([]);
 
   useEffect(() => {
     fetchOnibus();
@@ -28,7 +28,7 @@ function Cadastro() {
     }
   };
 
-  const [pontosList, setPontosList] = useState([]); // State to store the list of Onibus fetched from the API
+  const [pontosList, setPontosList] = useState([]);
 
   useEffect(() => {
     fetchPontos();
@@ -182,26 +182,26 @@ function Cadastro() {
             <legend>Usuario é ADM</legend>
             <input
               type="radio"
-              id="tipo-User"
+              id="tipo-User-true"
               name="tipo"
               value="true"
               className="tipoInput"
               checked={adm === true}
               onChange={() => setAdm(true)}
-            ></input>
-            <label htmlFor="tipo-User" className="label-tipo">
+            />
+            <label htmlFor="tipo-User-true" className="label-tipo">
               Sim
             </label>
             <input
               type="radio"
-              id="tipo-User"
+              id="tipo-User-false"
               name="tipo"
               value="false"
               className="tipoInput"
               checked={adm === false}
               onChange={() => setAdm(false)}
-            ></input>
-            <label htmlFor="tipo-User" className="label-tipo">
+            />
+            <label htmlFor="tipo-User-false" className="label-tipo">
               Não
             </label>
           </fieldset>

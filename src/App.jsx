@@ -9,6 +9,7 @@ import CadastroOnibus from './components/cadastroOnibus'
 import CadastroParada from './components/cadastroParada'
 import CheckIn from './components/checkin'
 import MostrarPontos from './components/listaPontos'
+import MostrarOnibus from './components/listaOnibus'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="ponto/cadastro" element={<CadastroParada/>}/>
           <Route path="/checkin" element={<CheckIn/>}/>
           <Route path="/ponto/lista" element={<MostrarPontos/>}/>
+          <Route path="/onibus/lista" element={<MostrarOnibus/>}/>
         </Route>
       </Routes>
     </>
