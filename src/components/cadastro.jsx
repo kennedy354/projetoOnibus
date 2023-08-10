@@ -1,5 +1,6 @@
 import "/src/style/login.css";
 import React, { useState, useEffect } from "react";
+import InputMask from "react-input-mask";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
@@ -102,7 +103,7 @@ function Cadastro() {
             <label className="labelEmVolta">Senha</label>
             <input
               type="password"
-              placeholder="Senha"
+              placeholder="*****"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
             />
@@ -120,11 +121,12 @@ function Cadastro() {
 
           <div className="emVolta">
             <label className="labelEmVolta">CPF</label>
-            <input
-              type="text"
-              placeholder="CPF"
+            <InputMask
+              mask="999.999.999-99"
+              placeholder="000.000.000-00"
               value={cpf}
               onChange={(e) => setCpf(e.target.value)}
+              autoComplete="off"
             />
           </div>
 
@@ -140,11 +142,12 @@ function Cadastro() {
 
           <div className="emVolta">
             <label className="labelEmVolta">Telefone</label>
-            <input
-              type="text"
-              placeholder="Telefone"
+            <InputMask
+              mask="(99) 99999-9999"
+              placeholder="(00) 00000-0000"
               value={telefone}
               onChange={(e) => setTelefone(e.target.value)}
+              autoComplete="off"
             />
           </div>
 
