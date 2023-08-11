@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "/src/style/tabela.css";
+import InputMask from "react-input-mask";
 
 function MostrarOnibus() {
   const [onibus, setOnibus] = useState([]);
@@ -20,7 +21,8 @@ function MostrarOnibus() {
         const updatedOnibus = onibus.filter((item) => item._id !== id);
         setOnibus(updatedOnibus);
       } else {
-        console.error("Erro ao deletar ônibus");
+        const data = await response.json();
+        alert(data.message);
       }
     } catch (error) {
       console.error("Erro", error);
@@ -109,8 +111,8 @@ function MostrarOnibus() {
               </td>
               <td>
                 {editingOnibusId === item._id ? (
-                  <input
-                    type="text"
+                  <InputMask
+                    mask="aaa9a99"
                     value={editedOnibus.placa}
                     onChange={(e) =>
                       setEditedOnibus({
@@ -125,8 +127,8 @@ function MostrarOnibus() {
               </td>
               <td>
                 {editingOnibusId === item._id ? (
-                  <input
-                    type="text"
+                  <InputMask
+                    mask="9999"
                     value={editedOnibus.ano}
                     onChange={(e) =>
                       setEditedOnibus({ ...editedOnibus, ano: e.target.value })

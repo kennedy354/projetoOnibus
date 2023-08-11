@@ -1,4 +1,4 @@
-.Ttitulo{
+.Ttitulo {
   text-align: center;
 }
 
@@ -19,7 +19,7 @@
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-.tabela thead tr th{
+.tabela thead tr th {
   background-color: #a0a0a0;
 }
 
@@ -106,8 +106,7 @@
   background: #14b314;
 }
 
-.tabela tbody td input{
-
+.tabela tbody td input {
   background: rgb(182, 182, 182);
   color: #000000;
   width: 100%;

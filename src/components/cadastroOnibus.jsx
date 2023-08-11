@@ -1,5 +1,6 @@
 import "/src/style/login.css";
 import React, { useState } from "react";
+import InputMask from "react-input-mask";
 
 function CadastroOnibus() {
   const [motorista, setMotorista] = useState("");
@@ -50,9 +51,9 @@ function CadastroOnibus() {
 
           <div className="emVolta">
             <label className="labelEmVolta">Placa</label>
-            <input
-              type="text"
-              placeholder="Placa"
+            <InputMask
+              mask="aaa9a99"
+              placeholder="AAA0A00"
               value={placa}
               onChange={(e) => setPlaca(e.target.value)}
             />
@@ -60,9 +61,9 @@ function CadastroOnibus() {
 
           <div className="emVolta">
             <label className="labelEmVolta">Ano</label>
-            <input
-              type="text"
-              placeholder="Ano"
+            <InputMask
+              mask="9999"
+              placeholder="20XX"
               value={ano}
               onChange={(e) => setAno(e.target.value)}
             />

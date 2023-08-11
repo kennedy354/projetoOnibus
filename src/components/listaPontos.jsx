@@ -20,7 +20,8 @@ function MostrarPontos() {
         const updatedPontos = pontos.filter((ponto) => ponto._id !== id);
         setPontos(updatedPontos);
       } else {
-        console.error("Erro ao deletar ponto");
+        const data = await response.json();
+        alert(data.message);
       }
     } catch (error) {
       console.error("Erro", error);
