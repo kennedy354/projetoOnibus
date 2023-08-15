@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import InputMask from "react-input-mask";
 
 function CheckIn() {
-  const [alunoId, setAlunoId] = useState("");
+  const alunoId = 1;
+
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    window.location.href = "/login";
+    alert("Precisa estar logado");
+    return;
+  }
 
   const handleCheckInSubmit = async (event) => {
     event.preventDefault();
@@ -12,6 +20,10 @@ function CheckIn() {
         `http://localhost:8080/aluno/${alunoId}/checkIn`,
         {
           method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 
@@ -22,8 +34,6 @@ function CheckIn() {
         const data = await response.json();
         alert(`Erro: ${data.message}`);
       }
-
-      setAlunoId("");
     } catch (error) {
       console.error("Erro", error);
     }
@@ -34,16 +44,6 @@ function CheckIn() {
       <div className="formulario">
         <p className="titulo">Check-In</p>
         <form className="formulario-registro" onSubmit={handleCheckInSubmit}>
-          <div className="emVolta">
-            <label className="labelEmVolta">ID do Aluno</label>
-            <input
-              type="text"
-              placeholder="ID do Aluno"
-              value={alunoId}
-              onChange={(e) => setAlunoId(e.target.value)}
-            />
-          </div>
-
           <button>Check-In</button>
         </form>
       </div>

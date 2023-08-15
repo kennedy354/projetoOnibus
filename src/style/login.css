@@ -105,3 +105,12 @@ legend {
 .escolhasDIV select:hover {
   border-color: #24a0ed;
 }
+
+.formulario .desLogar {
+  background: #ff8000;
+}
+.formulario .desLogar:hover,
+.form .desLogar:active,
+.form .desLogar:focus {
+  background: #d56d05;
+}

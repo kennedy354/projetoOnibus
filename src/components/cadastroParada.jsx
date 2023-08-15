@@ -5,6 +5,8 @@ function CadastroParada() {
   const [bairro, setBairro] = useState("");
   const [pontoReferencia, setPontoReferencia] = useState("");
 
+  const token = localStorage.getItem("token");
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -13,6 +15,7 @@ function CadastroParada() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           rua,

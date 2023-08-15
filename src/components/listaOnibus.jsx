@@ -11,10 +11,21 @@ function MostrarOnibus() {
     ano: "",
   });
 
+  const token = localStorage.getItem("token");
+
   const handleDeleteOnibus = async (id) => {
     try {
+      if (!token) {
+        window.location.href = "/login";
+        alert("Precisa estar logado");
+        return;
+      }
       const response = await fetch(`http://localhost:8080/onibus/${id}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (response.status === 204) {
@@ -41,10 +52,16 @@ function MostrarOnibus() {
 
   const handleSaveEdit = async (id) => {
     try {
+      if (!token) {
+        window.location.href = "/login";
+        alert("Precisa estar logado");
+        return;
+      }
       const response = await fetch(`http://localhost:8080/onibus/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(editedOnibus),
       });
@@ -66,7 +83,17 @@ function MostrarOnibus() {
   useEffect(() => {
     async function fetchOnibus() {
       try {
-        const response = await fetch("http://localhost:8080/onibus");
+        const response = await fetch("http://localhost:8080/onibus", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!response.ok) {
+          alert("nem prestou");
+          return;
+        }
+
         const data = await response.json();
         setOnibus(data);
       } catch (error) {

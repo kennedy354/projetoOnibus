@@ -15,13 +15,19 @@ function Cadastro() {
 
   const [onibusList, setOnibusList] = useState([]);
 
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
     fetchOnibus();
   }, []);
 
   const fetchOnibus = async () => {
     try {
-      const response = await fetch("http://localhost:8080/onibus");
+      const response = await fetch("http://localhost:8080/onibus", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
       setOnibusList(data);
     } catch (error) {
@@ -37,7 +43,11 @@ function Cadastro() {
 
   const fetchPontos = async () => {
     try {
-      const response = await fetch("http://localhost:8080/ponto");
+      const response = await fetch("http://localhost:8080/ponto", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
       setPontosList(data);
     } catch (error) {
@@ -53,6 +63,7 @@ function Cadastro() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           nome,

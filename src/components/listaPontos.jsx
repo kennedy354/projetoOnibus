@@ -10,10 +10,21 @@ function MostrarPontos() {
     pontoReferencia: "",
   });
 
+  const token = localStorage.getItem("token");
+
   const handleDeletePonto = async (id) => {
     try {
+      if (!token) {
+        window.location.href = "/login";
+        alert("Precisa estar logado");
+        return;
+      }
       const response = await fetch(`http://localhost:8080/ponto/${id}`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (response.status === 204) {
@@ -40,10 +51,16 @@ function MostrarPontos() {
 
   const handleSaveEdit = async (id) => {
     try {
+      if (!token) {
+        window.location.href = "/login";
+        alert("Precisa estar logado");
+        return;
+      }
       const response = await fetch(`http://localhost:8080/ponto/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(editedPonto),
       });
@@ -65,7 +82,16 @@ function MostrarPontos() {
   useEffect(() => {
     async function fetchPontos() {
       try {
-        const response = await fetch("http://localhost:8080/ponto");
+        const response = await fetch("http://localhost:8080/ponto", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!response.ok) {
+          alert("nem prestou");
+          return;
+        }
         const data = await response.json();
         setPontos(data);
       } catch (error) {

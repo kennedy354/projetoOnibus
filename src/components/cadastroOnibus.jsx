@@ -7,6 +7,8 @@ function CadastroOnibus() {
   const [placa, setPlaca] = useState("");
   const [ano, setAno] = useState("");
 
+  const token = localStorage.getItem("token");
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -15,6 +17,7 @@ function CadastroOnibus() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           motorista,
